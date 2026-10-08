@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geektoberfest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3f2ec;
+    --card: #f8f8f2;
+    --ink: #12241f;
+    --shadow: #2f4a43;
+    --muted: #4d5b56;
+    --red: #e63c2f;
+    --tag: #cfe0d9;
+    --green: #22c55e;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, system-ui, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+  }
+  main { width: 100%; max-width: 960px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  .eyebrow { font-size: 13px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+  header { display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: flex-end; justify-content: space-between; margin: 12px 0 32px; }
+  h1 {
+    font-family: "Barlow Condensed", Impact, sans-serif;
+    font-size: clamp(52px, 10vw, 96px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -.01em;
+  }
+  h1 span { color: var(--red); }
+  header p { max-width: 320px; color: var(--muted); line-height: 1.6; }
+  .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card {
+    display: flex;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--shadow);
+    cursor: pointer;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--shadow); }
+  .card:active { transform: translate(4px, 4px); box-shadow: 4px 4px 0 var(--shadow); }
+  .card:nth-child(3) { box-shadow: 8px 8px 0 #7a1d16; }
+  .card:nth-child(3):hover { box-shadow: 11px 11px 0 #7a1d16; }
+  .body { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .body h2 { font-family: "Barlow Condensed", Impact, sans-serif; font-size: 28px; line-height: 1.1; }
+  .tag { align-self: flex-start; background: var(--tag); font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 3px 9px; border-radius: 6px; }
+  .body p { color: var(--muted); font-size: 15px; line-height: 1.5; }
+  code { font-size: 12.5px; background: #ecebe2; border: 1px dashed var(--ink); padding: 8px 10px; word-break: break-all; margin-top: auto; }
+  .step { width: 70px; border-left: 2px solid var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: "Barlow Condensed", Impact, sans-serif; }
+  .step small { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted); letter-spacing: .08em; }
+  .step b { font-size: 40px; line-height: 1.1; }
+  .cta {
+    display: inline-block;
+    margin-top: 36px;
+    background: #e87c76;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 #7a1d16;
+    padding: 14px 22px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .cta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 #7a1d16; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 12px; letter-spacing: .1em; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow mono">GeeksforGeeks Campus Body · RBU</div>
+  <header>
+    <h1>Geekto<span>berfest.</span></h1>
+    <p>Learn Git, GitHub and your first pull request. Three steps. Click a card to copy the command.</p>
+  </header>
+
+  <section class="grid">
+    <div class="card" data-copy='git commit -m "my first commit"'>
+      <div class="body">
+        <h2>Save your work with Git</h2>
+        <span class="tag mono">GIT</span>
+        <p>Track changes on your machine, one commit at a time.</p>
+        <code class="mono">git commit -m "my first commit"</code>
+      </div>
+      <div class="step"><small>STEP</small><b>01</b></div>
+    </div>
+
+    <div class="card" data-copy="git push origin my-branch">
+      <div class="body">
+        <h2>Share it on GitHub</h2>
+        <span class="tag mono">GITHUB</span>
+        <p>Fork the repo, push your branch to your copy online.</p>
+        <code class="mono">git push origin my-branch</code>
+      </div>
+      <div class="step"><small>STEP</small><b>02</b></div>
+    </div>
+
+    <div class="card" data-copy="gh pr create">
+      <div class="body">
+        <h2>Open a Pull Request</h2>
+        <span class="tag mono">PR</span>
+        <p>Propose your change to the original project for review.</p>
+        <code class="mono">gh pr create</code>
+      </div>
+      <div class="step"><small>STEP</small><b>03</b></div>
+    </div>
+  </section>
+
+  <a class="cta mono" href="https://github.com/" target="_blank" rel="noopener">Start contributing →</a>
+  <footer class="mono">LEARNING GIT · ONE COMMIT AT A TIME</footer>
+</main>
+
+<script>
+  document.querySelectorAll(".card").forEach(c => c.addEventListener("click", () => {
+    const code = c.querySelector("code"), old = code.textContent;
+    navigator.clipboard?.writeText(c.dataset.copy);
+    code.textContent = "copied ✓";
+    setTimeout(() => code.textContent = old, 900);
+  }));
+</script>
+</body>
+</html>
